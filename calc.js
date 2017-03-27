@@ -9,6 +9,10 @@ var totalInvoiceIn = document.getElementById("orig-inv"),
 
 var ghost = document.querySelector(".ghost");
 
+window.addEventListener("load",function(){
+	totalInvoiceIn.focus();
+});
+
 button.addEventListener("click",calculate);
 
 function calculate(e){
@@ -18,12 +22,22 @@ function calculate(e){
 	startDate = new Date(dateIn.value);
 	totalPaid = totalPaidIn.value;
 
-	startDate = new Date(startDate.setDate(startDate.getDate()+1));
+	startDate = new Date(startDate.setDate(startDate.getDate()));
 	nextDue = dueDate(totalInvoice,termPayment,startDate,totalPaid);
 
 	disRemaining.innerHTML = "Amount remaining: " + "<span class='underlined'>" + parseFloat(totalInvoice - totalPaid).toFixed(2) + "</span>";
 	disDue.innerHTML = "Due date: "+"<span class='underlined'>" + nextDue.toLocaleDateString() +"</span>";
 	disBehindAhead.innerHTML = "Behind/Ahead: " + "???";
+
+	clearInputs();
+}
+
+function clearInputs(){
+	totalInvoiceIn.value = "";
+	termPaymentIn.value = "";
+	dateIn.value = "";
+	totalPaidIn.value = "";
+	totalInvoiceIn.focus();
 }
 
 function monthDiff(d1,d2){
