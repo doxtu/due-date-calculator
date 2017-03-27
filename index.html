@@ -1,0 +1,29 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Due Date Calculator</title>
+		<link rel="stylesheet" href="/main.css">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+	</head>
+
+	<body>
+		<div class="container inputs">
+			<h1>Due Date Calculator</h1>
+			<input id="orig-inv" type="number" placeholder = "original">
+			<input id="term-pay" type="number" placeholder = "term payment">
+			<input id="date" type="date">
+			<input id="total-paid" type="number" placeholder="total paid">
+			<button id = "btn">Calculate</button>
+		</div>
+
+		<div class = "container displays">
+			<span id="remaining">Amount remaining:</span>
+			<span id="due-date">Due date:</span>
+			<span id="behind-ahead">Behind/Ahead:</span>			
+		</div>
+		<div class="ghost"></div>
+		<script src="/calc.js"></script>
+	</body>
+</html>
