@@ -25,7 +25,7 @@ h1{
 .container{
 	display:block;
 	width:auto;
-	font-size: 44px;
+	font-size: 33px;
 }
 
 .container input,
@@ -39,6 +39,12 @@ h1{
 .container button{
 	color:hsl(45,30%,30%);
 	background:hsl(45,60%,50%);
+}
+
+#day,#month,#year{
+	display:inline-block;
+	margin:0;
+	width:30%;
 }
 
 /*DISPLAYS*/
