@@ -1,6 +1,8 @@
 var totalInvoiceIn = document.getElementById("orig-inv"),
 	termPaymentIn = document.getElementById("term-pay"),
-	dateIn = document.getElementById("date"),
+	monthIn = document.querySelector("#month"),
+	dayIn = document.querySelector("#day"),
+	yearIn = document.querySelector("#year"),
 	totalPaidIn = document.getElementById("total-paid"),
 	button = document.getElementById("btn"),
 	disRemaining = document.getElementById("remaining"),
@@ -19,10 +21,10 @@ function calculate(e){
 	var totalInvoice,termPayment,startDate,totalPaid,nextDue;
 	totalInvoice = totalInvoiceIn.value;
 	termPayment = termPaymentIn.value;
-	startDate = new Date(dateIn.value);
+	startDate = String(monthIn.value) + "/" + String(dayIn.value) + "/" + String(yearIn.value);  //new Date(dateIn.value);
 	totalPaid = totalPaidIn.value;
 
-	startDate = new Date(startDate.setDate(startDate.getDate()));
+	startDate = new Date(startDate);
 	nextDue = dueDate(totalInvoice,termPayment,startDate,totalPaid);
 
 	disRemaining.innerHTML = "Amount remaining: " + "<span class='underlined'>" + parseFloat(totalInvoice - totalPaid).toFixed(2) + "</span>";
@@ -35,7 +37,9 @@ function calculate(e){
 function clearInputs(){
 	totalInvoiceIn.value = "";
 	termPaymentIn.value = "";
-	dateIn.value = "";
+	monthIn.value ="";
+	dayIn.value = "";
+	yearIn.value = "";
 	totalPaidIn.value = "";
 	totalInvoiceIn.focus();
 }
